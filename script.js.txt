@@ -1,0 +1,133 @@
+// ====================
+// 🌐 زر تغيير اللغة
+// ====================
+const langBtn = document.getElementById("lang-toggle");
+let lang = "EN";
+
+if (langBtn) {
+  langBtn.addEventListener("click", () => {
+    if (lang === "EN") {
+      document.body.innerHTML = document.body.innerHTML
+        .replace("Home", "الصفحة الرئيسية")
+        .replace("About", "من نحن")
+        .replace("Services", "الخدمات")
+        .replace("Contact", "اتصل بنا")
+        .replace("We Build Brands That", "نحن نبني علامات تجارية")
+        .replace("Shine", "تتألق")
+        .replace("Professional digital marketing, web design, and advertising solutions that grow your business.", "حلول احترافية في التسويق الرقمي وتصميم المواقع والإعلانات لتنمية أعمالك.")
+        .replace("Explore Services", "استكشف الخدمات")
+        .replace("Contact Us", "تواصل معنا")
+        .replace("Send Message", "إرسال");
+      lang = "AR";
+      langBtn.textContent = "AR";
+    } else {
+      window.location.reload();
+    }
+  });
+}
+
+// ====================
+// 💬 شات ذكي بسيط
+// ====================
+
+// إنشاء فقاعة الشات
+const chatBubble = document.createElement("div");
+chatBubble.innerHTML = "💬";
+chatBubble.style.position = "fixed";
+chatBubble.style.bottom = "25px";
+chatBubble.style.right = "25px";
+chatBubble.style.background = "#FFD700";
+chatBubble.style.color = "#000";
+chatBubble.style.width = "55px";
+chatBubble.style.height = "55px";
+chatBubble.style.borderRadius = "50%";
+chatBubble.style.display = "flex";
+chatBubble.style.alignItems = "center";
+chatBubble.style.justifyContent = "center";
+chatBubble.style.fontSize = "26px";
+chatBubble.style.cursor = "pointer";
+chatBubble.style.boxShadow = "0 0 15px rgba(255,215,0,0.5)";
+chatBubble.style.transition = "transform 0.3s ease";
+chatBubble.title = "Chat with us";
+document.body.appendChild(chatBubble);
+
+// صندوق الشات
+const chatBox = document.createElement("div");
+chatBox.style.position = "fixed";
+chatBox.style.bottom = "100px";
+chatBox.style.right = "25px";
+chatBox.style.width = "280px";
+chatBox.style.height = "360px";
+chatBox.style.background = "rgba(0,0,0,0.95)";
+chatBox.style.border = "2px solid #FFD700";
+chatBox.style.borderRadius = "12px";
+chatBox.style.boxShadow = "0 0 20px rgba(255,215,0,0.3)";
+chatBox.style.display = "none";
+chatBox.style.flexDirection = "column";
+chatBox.style.overflow = "hidden";
+chatBox.style.zIndex = "9999";
+
+// محتوى الشات
+chatBox.innerHTML = `
+  <div style="background:#FFD700; color:#000; padding:10px; font-weight:bold; text-align:center;">
+    MARKETER Assistant 🤖
+  </div>
+  <div id="chat-messages" style="flex:1; padding:10px; overflow-y:auto; font-size:14px;"></div>
+  <div style="display:flex; border-top:1px solid #222;">
+    <input id="chat-input" type="text" placeholder="Type a message..." 
+      style="flex:1; padding:8px; border:none; outline:none; background:#111; color:#fff;">
+    <button id="send-btn" style="background:#FFD700; border:none; padding:8px 12px; cursor:pointer;">➤</button>
+  </div>
+`;
+document.body.appendChild(chatBox);
+
+// فتح وغلق الشات
+chatBubble.addEventListener("click", () => {
+  chatBox.style.display = chatBox.style.display === "none" ? "flex" : "none";
+  chatBubble.style.transform = chatBox.style.display === "flex" ? "scale(1.1)" : "scale(1)";
+});
+
+// الرسائل
+const chatMessages = document.getElementById("chat-messages");
+const chatInput = document.getElementById("chat-input");
+const sendBtn = document.getElementById("send-btn");
+
+function addMessage(sender, text) {
+  const msg = document.createElement("div");
+  msg.style.marginBottom = "8px";
+  msg.innerHTML = `<strong style="color:${sender === "bot" ? "#FFD700" : "#fff"};">${sender === "bot" ? "Bot" : "You"}:</strong> ${text}`;
+  chatMessages.appendChild(msg);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// رد تلقائي بسيط
+function botReply(userMsg) {
+  let reply = "I'm not sure I understand, could you tell me more?";
+  userMsg = userMsg.toLowerCase();
+
+  if (userMsg.includes("hello") || userMsg.includes("hi")) reply = "Hello! 👋 How can we help your business grow?";
+  if (userMsg.includes("ads")) reply = "We manage Facebook, Instagram & Google Ads campaigns that bring real results!";
+  if (userMsg.includes("website") || userMsg.includes("web")) reply = "We build modern, professional websites optimized for your business goals.";
+  if (userMsg.includes("price") || userMsg.includes("cost")) reply = "Our pricing depends on your goals — let's schedule a free consultation.";
+  if (userMsg.includes("thanks") || userMsg.includes("thank")) reply = "You're very welcome! 😊";
+
+  setTimeout(() => addMessage("bot", reply), 600);
+}
+
+// إرسال الرسائل
+sendBtn.addEventListener("click", () => {
+  const msg = chatInput.value.trim();
+  if (!msg) return;
+  addMessage("user", msg);
+  chatInput.value = "";
+  botReply(msg);
+});
+
+chatInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") sendBtn.click();
+});
+
+// رسالة ترحيب
+setTimeout(() => {
+  addMessage("bot", "Hi there! 👋 I'm your MARKETER assistant. How can I help you today?");
+}, 1500);
