@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - MARKETER</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <span class="arrow">➤</span> MARKETER
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" style="color:#FFD700;">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- About Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>About MARKETER</h1>
+      <p>
+        We are a full-service digital marketing agency dedicated to helping brands grow through strategy, creativity, and innovation.
+      </p>
+      <p>
+        Our team specializes in social media marketing, paid ads, and professional web design that delivers real results.
+      </p>
+      <a href="contact.html" class="btn">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2025 MARKETER. All Rights Reserved.
+  </footer>
+</body>
+</html>

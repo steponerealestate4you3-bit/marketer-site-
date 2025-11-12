@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services - MARKETER</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <span class="arrow">➤</span> MARKETER
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html" style="color:#FFD700;">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Services Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Our Services</h1>
+      <p>We offer professional digital marketing and web design solutions tailored to your business needs.</p>
+
+      <div class="services-container">
+
+        <div class="service-box">
+          <h2>🌐 Web Design & Development</h2>
+          <p>We build fast, responsive, and modern websites that convert visitors into customers.</p>
+        </div>
+
+        <div class="service-box">
+          <h2>📱 Social Media Marketing</h2>
+          <p>Grow your brand on Facebook, Instagram, and TikTok with creative and strategic campaigns.</p>
+        </div>
+
+        <div class="service-box">
+          <h2>💰 Paid Advertising (Meta & Google)</h2>
+          <p>We create, manage, and optimize ad campaigns that generate real ROI and measurable results.</p>
+        </div>
+
+        <div class="service-box">
+          <h2>📊 Analytics & Reporting</h2>
+          <p>We track your performance, analyze data, and deliver reports to improve every marketing move.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2025 MARKETER. All Rights Reserved.
+  </footer>
+</body>
+</html>
